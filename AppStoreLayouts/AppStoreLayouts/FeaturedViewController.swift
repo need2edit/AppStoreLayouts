@@ -8,13 +8,12 @@
 
 import UIKit
 
-class FeaturedViewController: UIViewController {
-    
+class FeaturedViewController: UIViewController, StorefrontProvider, StorefrontInterfaceProviderType {
     
     // MARK: Properties
     @IBOutlet var tableView: UITableView!
     
-    let storefront: Storefront = {
+    lazy var storefront: Storefront = {
     
         let sections = createSections(withTitles: [
             "A Summer You Won't Forget",
@@ -35,7 +34,16 @@ extension FeaturedViewController {
         
         // Setup Rows
         let nib = UINib(nibName: "ScrollingTableRowCell", bundle: Bundle.main)
-        self.tableView.register(nib, forCellReuseIdentifier: "ScrollingTableRowCell")
+        tableView.register(nib, forCellReuseIdentifier: "ScrollingTableRowCell")
+        
+        tableView.contentInset = .zero
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addWishlistInterface()
+        addCategoryInterface()
+        navigationItem.title = storefront.title
     }
 }
 
@@ -43,7 +51,7 @@ extension FeaturedViewController {
 extension FeaturedViewController: UITableViewDataSource {
     
     private func section(for indexPath: IndexPath) -> Section {
-        return storefront.sections[indexPath.section]
+        return storefront.sections[indexPath.row]
     }
     
     private func rowItem(for indexPath: IndexPath) -> SectionItem {
@@ -69,6 +77,7 @@ extension FeaturedViewController: UITableViewDataSource {
 
 extension FeaturedViewController {
     func configure(object: Section, cell: ScrollingTableRowCell) {
+        cell.titleLabel.text = object.title
         cell.section = object
         cell.collectionView.dataSource = object
     }
@@ -91,8 +100,51 @@ extension Section: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppCollectionCell", for: indexPath) as! AppCollectionCell
-        cell.app = items[indexPath.row] as! App
+        cell.app = items[indexPath.row] as? App
         return cell
     }
 }
 
+
+
+extension FeaturedViewController {
+    
+    func showWishlist() {
+        
+        let table = UITableViewController(style: .plain)
+        let nav = UINavigationController(rootViewController: table)
+        table.navigationItem.title = "Wishlist"
+        self.present(nav, animated: true) {
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                nav.dismiss(animated: true, completion: nil)
+            })
+
+        }
+        
+    }
+    
+    func showCategories() {
+        
+        let table = UITableViewController(style: .plain)
+        let nav = UINavigationController(rootViewController: table)
+        table.navigationItem.title = "Categories"
+        self.present(nav, animated: true) {
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                nav.dismiss(animated: true, completion: nil)
+            })
+        }
+        
+    }
+    
+}
+
+// MARK: - WishlistProvider
+extension FeaturedViewController: WishlistProvider {
+    
+}
+
+extension FeaturedViewController: CategorySelectionDelegate {
+    
+}

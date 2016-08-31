@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +38,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NW3-fz-nTm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="220" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NW3-fz-nTm">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9Ie-4W-IE8" id="qUH-T3-DUQ"/>
@@ -49,10 +48,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="NW3-fz-nTm" secondAttribute="trailing" constant="-16" id="Sca-nB-SKu"/>
+                            <constraint firstItem="NW3-fz-nTm" firstAttribute="leading" secondItem="lp5-v1-Oc0" secondAttribute="leading" id="H85-8l-3Mk"/>
+                            <constraint firstAttribute="trailing" secondItem="NW3-fz-nTm" secondAttribute="trailing" id="avN-hj-RY7"/>
                             <constraint firstItem="aLV-7O-jhR" firstAttribute="top" secondItem="NW3-fz-nTm" secondAttribute="bottom" id="jFV-23-pSp"/>
                             <constraint firstItem="NW3-fz-nTm" firstAttribute="top" secondItem="m7x-1V-e3E" secondAttribute="bottom" constant="-64" id="mZT-0n-yEb"/>
-                            <constraint firstItem="NW3-fz-nTm" firstAttribute="leading" secondItem="lp5-v1-Oc0" secondAttribute="leadingMargin" constant="-16" id="trs-UX-yWc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zgd-Gj-mTW"/>

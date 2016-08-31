@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ScrollingTableRowCell: UITableViewCell {
+class ScrollingTableRowCell: UITableViewCell, TitleLabelCell {
 
+    @IBOutlet var titleLabel: UILabel!
+    
     @IBOutlet var collectionView: UICollectionView!
     
     var section: Section!
@@ -19,6 +21,7 @@ class ScrollingTableRowCell: UITableViewCell {
         
         let nib = UINib(nibName: "AppCollectionCell", bundle: Bundle.main)
         collectionView.register(nib, forCellWithReuseIdentifier: AppCollectionCell.reuseIdentifierForCell)
+        collectionView.contentInset = .init(top: 0, left: 12.0, bottom: 0, right: 12.0)
     }
     
 }

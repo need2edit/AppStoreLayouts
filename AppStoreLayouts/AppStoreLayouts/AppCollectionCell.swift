@@ -12,7 +12,7 @@ class AppCollectionCell: UICollectionViewCell, GridCell, MetadataLabelCell {
 
     var imageCornerRadius: CGFloat = 16.0
     var imageBorderWidth: CGFloat = 0.5
-    var imageBorderColor: UIColor = .lightGray
+    var imageBorderColor: UIColor = .darkGray
     
     @IBOutlet var imageView: UIImageView!
     
