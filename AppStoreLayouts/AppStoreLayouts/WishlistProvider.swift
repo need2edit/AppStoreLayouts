@@ -10,15 +10,3 @@ import UIKit
 
 
 protocol WishlistProvider { }
-
-extension StorefrontInterfaceProviderType where Self: WishlistProvider, Self: CategorySelectionDelegate, Self: UIViewController {
-    
-    func addWishlistInterface() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(StorefrontInterfaceProviderType.showWishlist))
-    }
-    
-    func addCategoryInterface() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Categories", style: .plain, target: self, action: #selector(StorefrontInterfaceProviderType.showCategories))
-    }
-    
-}

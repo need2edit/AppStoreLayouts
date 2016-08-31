@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 /// Items conforming to `StorefrontProvider` provide a single store front as a data source.
@@ -20,5 +21,17 @@ protocol StorefrontProvider {
 
     @objc optional func showCategories()
     @objc optional func showWishlist()
+    
+}
+
+extension StorefrontInterfaceProviderType where Self: WishlistProvider, Self: CategorySelectionDelegate, Self: UIViewController {
+    
+    func addWishlistInterface() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(StorefrontInterfaceProviderType.showWishlist))
+    }
+    
+    func addCategoryInterface() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Categories", style: .plain, target: self, action: #selector(StorefrontInterfaceProviderType.showCategories))
+    }
     
 }
