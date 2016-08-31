@@ -8,16 +8,19 @@
 
 import Foundation
 
-extension App: SectionItem { }
-
-
 /// Creates Row of 16 Apps with the same name, price, and category.
 ///
 /// - returns: A section with 16 apps.
 func createRowOfApps(withCount count: Int) -> [App] {
     
     var items: [App] = []
-    for dollar in 0...count { items.append(App(name: "Flipagram", seller: "Flipagram, Inc.", price: "$ \(dollar).99", category: "Photo & Video")) }
+    for dollar in 0...count {
+        
+        let isEven = dollar % 2 == 0
+        let price: String? = isEven ? "$ \(dollar).99" : nil
+        let name: String = isEven ? "Day One Diary + Journal + Notes" : "Flipagram"
+        items.append(App(name: name, seller: "Flipagram, Inc.", price: price, category: "Photo & Video"))
+    }
     
     return items
 }
@@ -47,7 +50,7 @@ func createSections(withTitles titles: [String]) -> [Section] {
 /// - returns: A set of store fronts with sections and items.
 func createStorefronts() -> [Storefront] {
     
-    let sections = createSections(withTitles: ["A Summer You Won't Forget", "VMA Your Way", "Play That Beat"])
+    let sections = createSections(withTitles: ["A Summer You Won't Forget", "VMA Your Way", "Play That Beat", "Another Section", "Another Section", "Another Section", "Another Section"])
     
     let featured = Storefront(title: "Featured", sections: sections)
     

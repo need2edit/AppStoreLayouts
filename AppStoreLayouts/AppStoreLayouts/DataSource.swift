@@ -8,10 +8,14 @@
 
 import Foundation
 
+
+/// A basic data source with no sections.
 protocol SimpleDataSource {
-    var items: [Any] { get set }
+    var items: [DataItem] { get }
 }
 
+
+/// A more complex data source composed of `SimpleDataSource`.
 protocol ComplexDataSource {
-    var items: [SimpleDataSource] { get set }
+    var sections: [SimpleDataSource] { get set }
 }

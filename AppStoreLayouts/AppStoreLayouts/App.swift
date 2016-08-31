@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A data structure mirroring essential info found on the App Store.
 struct App {
     let name: String
     let seller: String
@@ -15,3 +16,6 @@ struct App {
     
     let category: String
 }
+
+// MARK: - Make Available to Generic Data Sources
+extension App: DataItem { }

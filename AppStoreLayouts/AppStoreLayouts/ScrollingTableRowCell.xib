@@ -36,6 +36,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="urb-aC-1nP"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="See All &gt;"/>
                             </button>
@@ -49,7 +50,7 @@
                     <constraint firstItem="WTP-pZ-gx5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="HnP-bX-YA1"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WTP-pZ-gx5" secondAttribute="bottom" constant="-9" id="Mx2-Lj-vxd"/>
                     <constraint firstItem="xv0-cA-AP0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="XmK-2z-LuU"/>
-                    <constraint firstItem="WTP-pZ-gx5" firstAttribute="top" secondItem="xv0-cA-AP0" secondAttribute="bottom" constant="8" id="wXe-ml-8zv"/>
+                    <constraint firstItem="WTP-pZ-gx5" firstAttribute="top" secondItem="xv0-cA-AP0" secondAttribute="bottom" constant="-8" id="wXe-ml-8zv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

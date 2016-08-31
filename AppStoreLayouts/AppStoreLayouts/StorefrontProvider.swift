@@ -24,6 +24,8 @@ protocol StorefrontProvider {
     
 }
 
+
+// MARK: - Default User Interface Implementation
 extension StorefrontInterfaceProviderType where Self: WishlistProvider, Self: CategorySelectionDelegate, Self: UIViewController {
     
     func addWishlistInterface() {

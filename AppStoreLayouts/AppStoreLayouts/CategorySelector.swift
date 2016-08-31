@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// Items conforming to `CategorySelectionDelegate` react to a change in category and filter results accordingly.
 protocol CategorySelectionDelegate {
     
 }

@@ -15,11 +15,16 @@ class FeaturedViewController: UIViewController, StorefrontProvider, StorefrontIn
     
     lazy var storefront: Storefront = {
     
-        let sections = createSections(withTitles: [
-            "A Summer You Won't Forget",
-            "VMA Your Way",
-            "Play That Beat"
-            ])
+        let sections = createSections(withTitles:
+            ["A Summer You Won't Forget",
+             "VMA Your Way",
+             "Play That Beat",
+             "Another Section",
+             "Another Section",
+             "Another Section",
+             "Another Section"
+            ]
+        )
         
         return Storefront(title: "Featured", sections: sections)
     
@@ -54,7 +59,7 @@ extension FeaturedViewController: UITableViewDataSource {
         return storefront.sections[indexPath.row]
     }
     
-    private func rowItem(for indexPath: IndexPath) -> SectionItem {
+    private func rowItem(for indexPath: IndexPath) -> DataItem {
         return section(for: indexPath).items[indexPath.row]
     }
     
@@ -87,25 +92,6 @@ extension FeaturedViewController {
 extension FeaturedViewController: UITableViewDelegate {
     
 }
-
-
-extension Section: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppCollectionCell", for: indexPath) as! AppCollectionCell
-        cell.app = items[indexPath.row] as? App
-        return cell
-    }
-}
-
-
 
 extension FeaturedViewController {
     

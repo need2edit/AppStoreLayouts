@@ -10,4 +10,4 @@ import Foundation
 
 
 /// Generic type for including multiple types of items in a section.
-protocol SectionItem { }
+protocol DataItem { }

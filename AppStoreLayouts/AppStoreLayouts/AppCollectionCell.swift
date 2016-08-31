@@ -21,6 +21,7 @@ class AppCollectionCell: UICollectionViewCell, GridCell, MetadataLabelCell {
     
     @IBOutlet var metadataLabel: UILabel!
     
+    // FIXME: Make this unaware of the model
     var app: App? {
         didSet {
             configureCell()
@@ -37,8 +38,11 @@ class AppCollectionCell: UICollectionViewCell, GridCell, MetadataLabelCell {
         imageView.layer.borderColor = imageBorderColor.cgColor
         imageView.clipsToBounds = true
         
+        // FIXME: Make this unaware of the model
+        
         titleLabel.text = app.name
         subtitleLabel.text = app.category
+        metadataLabel.text = app.price
         
     }
     

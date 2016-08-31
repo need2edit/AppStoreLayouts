@@ -8,5 +8,5 @@
 
 import UIKit
 
-
+/// An interface that provides UI for managing a Wishlist.
 protocol WishlistProvider { }
